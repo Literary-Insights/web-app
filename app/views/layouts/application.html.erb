@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Literaly Insights</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "footer", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "article_home", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "article_show", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "article_form", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "errors", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "sign", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "users_list", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "profile", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "pagination", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "messages", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "edit_user", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "topics", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <main class="main">
+      <%= render 'layouts/messages' %>
+    <%= yield %>
+    </main>
+  </body>
+</html>

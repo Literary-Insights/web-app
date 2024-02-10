@@ -1,0 +1,270 @@
+header {
+    background: var(--primary-color);
+    height: 60px;
+    width: 100%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+
+header nav {
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header nav::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+header nav .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+header nav .nav-left .logo_box {
+    width: 2.2rem;
+    height: 1.8rem;
+}
+
+header nav .nav-left .logo_box .logo {
+    width: 100%;
+    height: 100%;
+}
+
+header .search_box {
+    background: var(--secondary-color);
+    padding: 0 .6rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+}
+
+header .search_box .fa-solid {
+    color: var(--text-gray-color);
+}
+
+header .search_flex {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+header .search_flex input {
+    width: 100%;
+    background: none;
+    padding: .4rem 0;
+}
+
+
+header .nav-right .links {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+header .nav-right .nav_link_write {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--text-gray-color);
+    font-weight: 500;
+}
+
+header .nav-right .nav_link_write a {
+    font-weight: 500;
+    color: var(--text-gray-color);
+}
+
+header .nav-right .nav_btn {
+    padding: .2rem .6rem;
+    border-radius: 1.5rem;
+    font-weight: 500;
+}
+
+header .nav_btn_signin {
+    background: var(--tertiary-color)
+}
+
+header .nav_btn_signin a {
+    color: var(--primary-color);
+}
+
+
+header .nav_btn_signup {
+    background: var(--secondary-color)
+}
+
+header .nav_btn_signup a {
+    color: var(--tertiary-color);
+}
+
+.image_nav {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image_nav img {
+    width: 100%;
+    height: 100%;
+}
+
+
+// The mini nav styles
+
+ul .fa-bars {
+    font-size: 1.5rem;
+    color: var(--text-gray-color);
+    cursor: pointer;
+}
+
+
+.mini_nav_box {
+    height: 10rem;
+    width: 0rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary-color);
+    transition: 0.5s;
+    border: 2px solid var(--secondary-color);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.mini_nav_links {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.mini_nav_links a {
+    font-size: 1rem;
+    color: var(--danger-color);
+}
+
+
+
+.mini_nav_box .closebtn {
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--text-gray-color);
+    position: absolute;
+    right: 10%;
+    cursor: pointer;
+}
+
+
+/* Original styles for larger screens */
+.nav-right #check {
+    display: none;
+    background-repeat: no-repeat;
+}
+
+.nav-right .checkbtn {
+    display: none;
+}
+
+
+@media screen and (max-width:800px) {
+
+    .nav-right .checkbtn {
+        color: var(--tertiary-color);
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    header .nav-right .links {
+        width: 0%;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--tertiary-color);
+        padding: 0rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
+        z-index: 10;
+        overflow: hidden;
+        transition: .5s ease-in-out;
+    }
+
+    header .nav-right .links {
+        padding: 2rem 0;
+    }
+
+
+    .nav-right #check:checked~ul {
+        width: 100%;
+    }
+
+    header .nav-right .nav_link_write a {
+        font-weight: 400;
+        color: var(--primary-color);
+    }
+
+    header .nav-right .nav_btn {
+        width: 50%;
+        padding: .6rem .6rem;
+        border-radius: 1.5rem;
+        font-weight: 500;
+    }
+
+    header .nav_btn_signin {
+        background: var(--primary-color)
+    }
+
+    header .nav_btn_signin a {
+        color: var(--tertiary-color);
+    }
+
+
+    header .nav_btn_signup {
+        background: inherit;
+        border: 2px solid var(--primary-color);
+    }
+
+    header .nav_btn_signup a {
+        color: var(--primary-color);
+    }
+
+    .fa-bars {
+        color: var(--primary-color);
+    }
+
+}
+
+@media screen and (max-width:380px) {
+
+
+    header nav .nav-left {
+        gap: 1rem;
+    }
+
+    header nav .nav-left .logo_box {
+        width: 2rem;
+        height: 1.6rem;
+    }
+
+    header nav {
+        width: 95%;
+    }
+}

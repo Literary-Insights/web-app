@@ -1,0 +1,6 @@
+<section class="articles_container">
+<%= render 'articles/partials/mainArticles' %>
+<% if controller_name == 'pages' && action_name == 'home' %>
+<%= render 'articles/partials/sidebar' %>
+<% end %>
+</section>

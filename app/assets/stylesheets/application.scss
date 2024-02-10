@@ -1,0 +1,72 @@
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+:root {
+    --primary-color: #FFFDFE;
+    --secondary-color: #d5d5d563;
+    --tertiary-color: #151515;
+    --text-gray-color: #808080;
+    --success-color: #008000;
+    --danger-color: #ff0000;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Gelasio', serif;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.main {
+    padding: 2rem;
+    width: 90%;
+    max-width: 1920px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+// The style for the message incase there is no articles/blogs
+
+
+.no_blog {
+    padding: .7rem;
+    width: 100%;
+    text-align: center;
+    background: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-gray-color);
+    border-radius: .6rem;
+}
+
+
+
+@media screen and (max-width:920px) {
+    .main {
+        padding: 1rem;
+        width: 100%;
+
+    }
+}

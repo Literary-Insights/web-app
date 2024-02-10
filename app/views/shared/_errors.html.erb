@@ -1,0 +1,17 @@
+<% if obj.errors.any? %>
+<div class="error_con" id="errorblock">
+<h3>Oops!😒</h3>
+<ul>
+  <% obj.errors.full_messages.each do |msg|%>
+    <li><i class="fa-regular fa-circle-xmark"></i><span><%= msg %></span></li>
+  <% end %>
+</ul>
+</div>
+<% end %>
+
+
+<script>
+  setTimeout(() => {
+    document.getElementById("errorblock").style.display = 'none'
+  },3000)
+</script>
