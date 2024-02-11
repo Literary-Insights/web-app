@@ -1,95 +1,91 @@
 <header class="header">
-    <nav>
-        <div class="nav-left">
-            <div class="logo_box">
-                <%= link_to root_path do%>
-                <%= image_tag("logo.png", alt: "Logo" , class: "logo" ) %>
-                <% end %>
-            </div>
+  <nav>
+    <div class="nav-left">
+      <div class="logo_box">
+        <%= link_to root_path do %>
+          <%= image_tag("logo.png", alt: "Logo", class: "logo") %>
+        <% end %>
+      </div>
 
-            <div class="search_box">
-                <div class="search_flex">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search" placeholder="Search" />
-                </div>
-            </div>
-
+      <div class="search_box">
+        <div class="search_flex">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" placeholder="Search" />
         </div>
-        <div class="nav-right">
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-            <i class="fa-solid fa-bars checkbtn"></i>
-            </label>
+      </div>
+    </div>
+    <div class="nav-right">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars checkbtn"></i>
+      </label>
+      <ul class="links" id="links">
+        <li class="nav_link nav_link_write">
+          <% if logged_in? %>
+          <% if current_user.admin? %>
+            <%= link_to new_article_path do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+              <%= 'Write' %>
+            <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to signup_path do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+              <%= 'Write' %>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav_link nav_link_write"><%= link_to 'Explore', users_path %></li>
+        <% if logged_in? %>
+          <li class="nav_link nav_link_write"><%= link_to 'Topics', categories_path %></li>
+          <% if current_user.admin? %>
+            <li class="nav_link nav_link_write"><%= link_to 'Add topics', new_category_path %></li>
+          <% end %>
+        <% end %>
 
-            <ul class="links" id="links">
-                <li class="nav_link nav_link_write">
-                  
-                    <% if logged_in? %>
-                    <%= link_to new_article_path do %>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <%= 'Write' %>
-                    <% end %>
-                    <% else %>
-                    <%= link_to signup_path do %>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <%= 'Write' %>
-                    <% end %>
-                    <% end %>
-                </li>
-                <li class="nav_link nav_link_write"><%= link_to 'Explore', users_path %></li>
-                <% if logged_in? %>
-                <li class="nav_link nav_link_write"><%= link_to 'Topics', categories_path %></li>
-                <% if current_user.admin? %>
-                <li class="nav_link nav_link_write"><%= link_to 'Add topics', new_category_path %></li>
-                <% end %>
-                <% end %>
-
-                <% if logged_in? %>
-                <div class="image_nav">
-                    <%= link_to user_path(current_user) do %>
-                    <% if current_user.ProfileImage.attached?%>
-                    <%= image_tag(current_user.ProfileImage,alt: "profile picture",class:"user_img") %>
-                    <% else %>
-                        <%= image_tag("userimage.avif", alt: "profile picture", class:"user_img") %>
-                            <%end%>
-                            <%end%>
-                            
-                </div>
-                <%  else %>
-                <button class="nav_btn nav_btn_signin">
-                    <%= link_to "Sign In" , login_path%>
-                </button>
-                
-                <button class="nav_btn nav_btn_signup">
-                    <%= link_to "Sign Up", signup_path %>
-                </button>
-                <% end %>
-
-            <!-- The delete account and signout nav -->
-            <% if logged_in? %>
-            <i class="fa-solid fa-bars" onclick="actionNav()"></i>
-            <div id="miniNav" class="mini_nav_box">
-                <i class="fa-regular fa-circle-xmark closebtn" onclick="closeActionNav()" ></i>
-                <div class="mini_nav_links">
-                        <%= link_to "Sign Out" , logout_path, data:{turbo_method: :delete}%>
-                        <%= link_to "Delete Account" , user_path(current_user), data:{turbo_method: :delete, turbo_confirm: "Delete my account"}%>
-                </div>
-              </div>
+        <% if logged_in? %>
+          <div class="image_nav">
+            <%= link_to user_path(current_user) do %>
+              <% if current_user.ProfileImage.attached? %>
+                <%= image_tag(current_user.ProfileImage, alt: "profile picture", class: "user_img") %>
+              <% else %>
+                <%= image_tag("userimage.avif", alt: "profile picture", class: "user_img") %>
               <% end %>
-       
-            <!-- The delete account and signout nav ends -->
-            </ul>
-        </div>
-    </nav>
+            <% end %>
+          </div>
+        <% else %>
+          <button class="nav_btn nav_btn_signin">
+            <%= link_to "Sign In", login_path %>
+          </button>
+          
+          <button class="nav_btn nav_btn_signup">
+            <%= link_to "Sign Up", signup_path %>
+          </button>
+        <% end %>
+
+        <!-- The delete account and signout nav -->
+        <% if logged_in? %>
+          <i class="fa-solid fa-bars" onclick="actionNav()"></i>
+          <div id="miniNav" class="mini_nav_box">
+            <i class="fa-regular fa-circle-xmark closebtn" onclick="closeActionNav()"></i>
+            <div class="mini_nav_links">
+              <%= link_to "Sign Out", logout_path, data: { turbo_method: :delete } %>
+              <%= link_to "Delete Account", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Delete my account" } %>
+            </div>
+          </div>
+        <% end %>
+        <!-- The delete account and signout nav ends -->
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <script>
-    const actionNav = () => {
-        document.getElementById("miniNav").style.width = "15rem";
-    };
+  const actionNav = () => {
+    document.getElementById("miniNav").style.width = "15rem";
+  };
 
-    const closeActionNav = () => {
-        document.getElementById("miniNav").style.width = "0rem";
-    };
-    
+  const closeActionNav = () => {
+    document.getElementById("miniNav").style.width = "0rem";
+  };
 </script>

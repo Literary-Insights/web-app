@@ -75,4 +75,3 @@ gem "sassc-rails"
 gem 'jquery-rails'
 
 gem 'bootstrap-icons-helper'
-
