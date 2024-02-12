@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   # Action to render the login form
-  def new
-  end
+  def new; end
 
   # Action to authenticate user credentials and create a session
   def create

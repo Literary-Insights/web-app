@@ -15,9 +15,7 @@ class PagesController < ApplicationController
   end
 
   # Action to render the about page
-  def about
-    
-  end
+  def about; end
 end
 
 
