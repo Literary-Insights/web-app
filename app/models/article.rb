@@ -7,4 +7,6 @@ class Article < ApplicationRecord
     validates :description, length: { maximum: 250 }
     validates :content, presence: true
     attribute :views, :integer, default: 0
+
+    has_rich_text :content
 end

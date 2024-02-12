@@ -1,9 +1,9 @@
-.artiicle_form {
+.article_form {
     width: 60%;
     margin: auto;
 }
 
-.artiicle_form .form_con {
+.article_form .form_con {
     width: 100%;
     height: auto;
     display: flex;
@@ -11,17 +11,17 @@
     gap: 2rem;
 }
 
-.artiicle_form .form_con .form_box {
+.article_form .form_con .form_box {
     width: 100%;
     border-bottom: 2px solid var(--secondary-color);
 }
 
-.artiicle_form .form_con .form_box input,
-.artiicle_form .form_con .form_box textarea {
+.article_form .form_con .form_box input,
+.article_form .form_con .form_box textarea {
     width: 100%;
 }
 
-.artiicle_form .form_con .form_box textarea {
+.article_form .form_con .form_box textarea {
     height: 295px;
     max-height: 295px;
     min-height: 295px;
@@ -32,20 +32,20 @@
 }
 
 
-.artiicle_form .title_box {
+.article_form .title_box {
     font-family: 'Roboto', sans-serif;
     color: var(--tertiary-color);
     font-size: 34px;
     font-weight: 700;
 }
 
-.artiicle_form .description_box {
+.article_form .description_box {
     color: var(--tertiary-color);
     font-size: 1.1rem;
     font-weight: 700;
 }
 
-.artiicle_form .custom-file-upload {
+.article_form .custom-file-upload {
     display: inline-block;
     cursor: pointer;
     padding: 10px 15px;
@@ -54,13 +54,13 @@
     font-size: 16px;
 }
 
-.artiicle_form .form_box label {
+.article_form .form_box label {
     color: var(--text-gray-color);
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
 }
 
-.artiicle_form .publish_btn {
+.article_form .publish_btn {
     padding: .8rem;
     background: var(--tertiary-color);
     color: var(--primary-color);
@@ -72,13 +72,13 @@
 
 
 @media screen and (max-width:920px) {
-    .artiicle_form {
+    .article_form {
         width: 80%;
     }
 }
 
 @media screen and (max-width:700px) {
-    .artiicle_form {
+    .article_form {
         width: 90%;
     }
 }
