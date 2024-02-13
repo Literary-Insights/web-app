@@ -39,7 +39,7 @@
           <% if @article.user.ProfileImage.attached? %>
             <%= image_tag(@article.user.ProfileImage, alt: "profile picture", class: "user_img") %>
           <% else %>
-            <%= image_tag("userimage.avif", alt: "profile picture", class: "user_img") %>
+            <%= image_tag("https://cdn.hashnode.com/res/hashnode/image/upload/v1707865376417/zdUpwJxPk.png?auto=format", alt: "profile picture", class: "user_img") %>
           <% end %>
         </div>
         <div class="article_profile_details">
