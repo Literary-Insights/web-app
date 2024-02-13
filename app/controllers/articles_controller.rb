@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
 
   # Method to define the permitted fields for article creation and updating
   def permit_fields
-    params.require(:article).permit(:title, :description, :content, :thumbnail, category_ids: [])
+    params.require(:article).permit(:title, :description, :content, :thumbnail, :image_link, category_ids: [])
   end
 
   # Method to ensure that the current user is the same as the article owner (or an admin)

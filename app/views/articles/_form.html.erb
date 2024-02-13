@@ -18,6 +18,10 @@
     </div>
 
     <div class="form_box">
+      <%= f.text_field :image_link, placeholder:"Put a image link" %>
+    </div>
+
+    <div class="form_box">
       <div class="col-sm-8 col-sm-offset-2">
         <%= f.label :Category, "Pick category/categories" %><br />
         <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>

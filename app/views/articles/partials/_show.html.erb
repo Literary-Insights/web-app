@@ -21,6 +21,8 @@
   <div class="thumbnail_in_read">
     <% if @article.thumbnail.attached? %>
       <%= image_tag(@article.thumbnail, width: 300) %>
+    <% elsif @article.image_link.present? %>
+      <%= image_tag(@article.image_link, width: 300) %>
     <% else %>
       <%= image_tag('dt.jpeg', width: 300) %>
     <% end %>
