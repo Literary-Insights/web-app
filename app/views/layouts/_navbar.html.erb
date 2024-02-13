@@ -14,32 +14,36 @@
         </div>
       </div>
     </div>
+
     <div class="nav-right">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fa-solid fa-bars checkbtn"></i>
       </label>
+
       <ul class="links" id="links">
-          <% if logged_in? %>
-          <% if current_user.admin? %>
-        <li class="nav_link nav_link_write">
+        <% if logged_in? && current_user.admin? %>
+          <li class="nav_link nav_link_write">
             <%= link_to new_article_path do %>
               <i class="fa-regular fa-pen-to-square"></i>
               <%= 'Write' %>
             <% end %>
-            <% end %>
-          <% else %>
-            <%= link_to signup_path do %>
-              <i class="fa-regular fa-pen-to-square"></i>
-              <%= 'Write' %>
-            <% end %>
-          <% end %>
+          </li>
+        <% end %>
+
+        <li class="nav_link nav_link_write">
+          <%= link_to 'Explore', users_path %>
         </li>
-        <li class="nav_link nav_link_write"><%= link_to 'Explore', users_path %></li>
+
         <% if logged_in? %>
-          <li class="nav_link nav_link_write"><%= link_to 'Topics', categories_path %></li>
+          <li class="nav_link nav_link_write">
+            <%= link_to 'Topics', categories_path %>
+          </li>
+
           <% if current_user.admin? %>
-            <li class="nav_link nav_link_write"><%= link_to 'Add topics', new_category_path %></li>
+            <li class="nav_link nav_link_write">
+              <%= link_to 'Add topics', new_category_path %>
+            </li>
           <% end %>
         <% end %>
 
@@ -57,24 +61,22 @@
           <button class="nav_btn nav_btn_signin">
             <%= link_to "Sign In", login_path %>
           </button>
-          
+
           <button class="nav_btn nav_btn_signup">
             <%= link_to "Sign Up", signup_path %>
           </button>
         <% end %>
 
-        <!-- The delete account and signout nav -->
         <% if logged_in? %>
           <i class="fa-solid fa-bars" onclick="actionNav()"></i>
           <div id="miniNav" class="mini_nav_box">
             <i class="fa-regular fa-circle-xmark closebtn" onclick="closeActionNav()"></i>
             <div class="mini_nav_links">
               <%= link_to "Sign Out", logout_path, data: { turbo_method: :delete } %>
-              <%#= link_to "Delete Account", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Delete my account" } %>
+              <%# link_to "Delete Account", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Delete my account" } %>
             </div>
           </div>
         <% end %>
-        <!-- The delete account and signout nav ends -->
       </ul>
     </div>
   </nav>
