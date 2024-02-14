@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
   
-        flash[:notice] = "Welcome to Literaly Insights, #{@user.username}"
+        flash[:notice] = "Welcome to Literary Insights, #{@user.username}"
         redirect_to articles_path
       else
         render 'new'
