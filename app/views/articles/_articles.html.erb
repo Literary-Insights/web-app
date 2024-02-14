@@ -1,6 +1,31 @@
-<section class="articles_container">
-  <%= render 'articles/partials/mainArticles' %>
-  <% if controller_name == 'pages' && action_name == 'home' %>
-    <%= render 'articles/partials/sidebar' %>
-  <% end %>
-</section>
+<% if logged_in? && (current_user.payer || current_user.admin?)  %>
+  <section class="articles_container">
+    <%= render 'articles/partials/mainArticles' %>
+    <% if controller_name == 'pages' && action_name == 'home' %>
+      <%= render 'articles/partials/sidebar' %>
+    <% end %>
+  </section>
+<% elsif logged_in? && current_user.payer == false %>
+  <h1>🌟 Dive Deeper with Literaly Insights! 🌟</h1>
+
+  <p>Unlock a world of knowledge and wisdom with Literaly Insights - your go-to app for insightful book summaries that inspire, educate, and transform. Whether you're a voracious reader short on time or a curious mind eager to learn, we've got you covered. 📚✨</p>
+
+  <h1>🔥 SPECIAL OFFER JUST FOR YOU! 🔥</h1>
+
+  <p>As a thank you to our YouTube family, we're giving you an exclusive chance to join our Early Adopter Plan for just $1/month! This limited-time offer is your golden ticket to explore a vast library of book summaries, designed to fit perfectly into your busy life.</p>
+
+  <a href="bit.ly/early-adopter-web-app">CLICK HERE</a>
+
+  <p>Don't miss out! Click the link to start your journey with Literaly Insights today and embark on an adventure of lifelong learning</p>
+
+  <p>💬 We'd love to hear from you! Share your thoughts, favorite books, or what you'd love to see next in the comments below. Let's build a community of book lovers and knowledge seekers. 🌍</p>
+
+  <p>Remember, every book holds a new insight waiting to be discovered. Let Literaly Insights be the key to unlocking those doors. 🗝</p>
+
+  <a href="bit.ly/early-adopter-web-app">CLICK HERE</a>
+<% else %>
+
+  <h1>Subscribe to Enjoy Our App</h1>
+  <a href="/signup">CLICK HERE</a>
+
+<% end %>
