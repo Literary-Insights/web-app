@@ -3,56 +3,58 @@
     <button>Popular users</button>
     <button>New users</button>
 </div>
-<div class="users_con">
-    <% @users.each do |user|%>
-        <div class="user_box">
-            <div class="user_box_left">
-                <div class="user_box_img">
-                    <%= link_to user_path(user) do %>
-                        <% if user.ProfileImage.attached? %>
-                            <%= image_tag(user.ProfileImage,alt: "profile picture" , class:"user_pics") %>
-                                <% else %>
-                                    <%= image_tag("https://cdn.hashnode.com/res/hashnode/image/upload/v1707865376417/zdUpwJxPk.png?auto=format", alt: "profile picture" , class:"user_pics") %>
-                                        <%end%>
-                                            <%end%>
-                </div>
-            </div>
-            <div class="user_box_right">
-                <div class="user_pf_tp">
-                    <span class="fullname">
-                        <%= link_to user.fullname, user_path(user), class:"fullname"%>
-                    </span>
-                    <span class="username">@<%= link_to user.username, user_path(user), class:"username"%></span>
-                </div>
-                <div class="user_pf_md mt-1">
-                    <div>0 Followers</div>
-                    <div class="reactions_total">
-                        <i class="fa-regular fa-heart"></i>
-                        <span class="reacts_nums">0</span>
-                    </div>
-                </div>
-                <div class="user_pf_md mt-1">
-                    <div>Payer: </div>
-                    <div class="reactions_total">
-                        <%= user.payer %>
-                    </div>
-                </div>
 
-                <div class="user_pf_bm mt-2">
-                    <% if logged_in? && current_user.admin? %>
-                        <%= link_to edit_user_path(user) do %>
-                        <button class="fl_btn">Edit</button>
-                    <% end %>
-                    <% end %>
-                </div>
-                <div class="user_pf_bm mt-2">
-                    <% if logged_in? && current_user.admin? %>
-                        <%= link_to user_path(user) , data:{turbo_method: :delete, turbo_confirm: "Delete user"} do %>
-                        <button class="dl_btn">Delete</button>
-                    <% end %>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <% end %>
+<div class="users_con">
+  <% @users.each do |user| %>
+      <div class="user_box">
+          <div class="user_box_left">
+              <div class="user_box_img">
+                  <%= link_to user_path(user) do %>
+                      <% if user.ProfileImage.attached? %>
+                          <%= image_tag(user.ProfileImage, alt: "profile picture", class: "user_pics") %>
+                      <% else %>
+                          <%= image_tag("https://cdn.hashnode.com/res/hashnode/image/upload/v1707865376417/zdUpwJxPk.png?auto=format", alt: "profile picture", class: "user_pics") %>
+                      <% end %>
+                  <% end %>
+              </div>
+          </div>
+          <div class="user_box_right">
+              <div class="user_pf_tp">
+                  <span class="fullname">
+                      <%= link_to user.fullname, user_path(user), class: "fullname" %>
+                  </span>
+                  <span class="username">
+                      @<%= link_to user.username, user_path(user), class: "username" %>
+                  </span>
+              </div>
+              <div class="user_pf_md mt-1">
+                  <div>0 Followers</div>
+                  <div class="reactions_total">
+                      <i class="fa-regular fa-heart"></i>
+                      <span class="reacts_nums">0</span>
+                  </div>
+              </div>
+              <div class="user_pf_md mt-1">
+                  <div>Payer:</div>
+                  <div class="reactions_total">
+                      <%= user.payer %>
+                  </div>
+              </div>
+              <div class="user_pf_bm mt-2">
+                  <% if logged_in? && current_user.admin? %>
+                      <%= link_to edit_user_path(user) do %>
+                          <button class="fl_btn">Edit</button>
+                      <% end %>
+                  <% end %>
+              </div>
+              <div class="user_pf_bm mt-2">
+                  <% if logged_in? && current_user.admin? %>
+                      <%= link_to user_path(user), data: { turbo_method: :delete, turbo_confirm: "Delete user" } do %>
+                          <button class="dl_btn">Delete</button>
+                      <% end %>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+  <% end %>
 </div>
