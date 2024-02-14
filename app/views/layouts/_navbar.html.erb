@@ -29,11 +29,10 @@
               <%= 'Write' %>
             <% end %>
           </li>
+          <li class="nav_link nav_link_write">
+            <%= link_to 'Explore', users_path %>
+          </li>
         <% end %>
-
-        <li class="nav_link nav_link_write">
-          <%= link_to 'Explore', users_path %>
-        </li>
 
         <% if logged_in? %>
           <li class="nav_link nav_link_write">
