@@ -25,18 +25,30 @@
                     <span class="username">@<%= link_to user.username, user_path(user), class:"username"%></span>
                 </div>
                 <div class="user_pf_md mt-1">
-                    <div>40 Followers</div>
+                    <div>0 Followers</div>
                     <div class="reactions_total">
                         <i class="fa-regular fa-heart"></i>
                         <span class="reacts_nums">0</span>
                     </div>
                 </div>
+                <div class="user_pf_md mt-1">
+                    <div>Payer: </div>
+                    <div class="reactions_total">
+                        <%= user.payer %>
+                    </div>
+                </div>
+
                 <div class="user_pf_bm mt-2">
-                    <button class="fl_btn">Follow</button>
-                    <button class="rm_btn">Remove</button>
                     <% if logged_in? && current_user.admin? %>
-                    <%= link_to user_path(user) , data:{turbo_method: :delete, turbo_confirm: "Delete user"} do %>
-                     <button class="dl_btn">Delete</button>
+                        <%= link_to edit_user_path(user) do %>
+                        <button class="fl_btn">Edit</button>
+                    <% end %>
+                    <% end %>
+                </div>
+                <div class="user_pf_bm mt-2">
+                    <% if logged_in? && current_user.admin? %>
+                        <%= link_to user_path(user) , data:{turbo_method: :delete, turbo_confirm: "Delete user"} do %>
+                        <button class="dl_btn">Delete</button>
                     <% end %>
                     <% end %>
                 </div>
