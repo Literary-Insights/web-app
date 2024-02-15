@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   
     # Define the permitted parameters for user creation and updating
     def user_params
-      params.require(:user).permit(:fullname, :username, :email, :password, :ProfileImage, :payer, :bio, :youtube_link, :instagram_link, :facebook_link, :twitter_link)
+      params.require(:user).permit(:fullname, :username, :email, :password, :ProfileImage, :payer, :trial, :bio, :youtube_link, :instagram_link, :facebook_link, :twitter_link)
     end
   
     # Method to set the user based on the ID parameter

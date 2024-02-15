@@ -1,4 +1,4 @@
-<% if logged_in? && (current_user.payer || current_user.admin?)  %>
+<% if logged_in? && (current_user.payer || current_user.trial || current_user.admin?)  %>
   <section class="articles_container">
     <%= render 'articles/partials/mainArticles' %>
     <% if controller_name == 'pages' && action_name == 'home' %>

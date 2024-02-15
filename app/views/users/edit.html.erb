@@ -28,7 +28,7 @@
             <div class="tab-pane-flex">
               <div class="form_box profile_box">
                 <%= f.label :ProfileImage %>
-                  <%= f.file_field :ProfileImage, placeholder:"Enter your image" %>
+                <%= f.file_field :ProfileImage, placeholder:"Enter your image" %>
               </div>
 
               <div class="form_box fullname_box">
@@ -41,10 +41,18 @@
               <div class="form_box email_box">
                 <%= f.email_field :email, placeholder:"Enter your Email" %>
               </div>
+              <% if logged_in? && current_user.admin? %>
+                <div class="form_box">
+                  <%= f.label :payer %>
+                  <%= f.text_field :payer%>
+                </div>
 
-              <div class="form_box">
-                <%= f.text_field :payer%>
-              </div>
+                <div class="form_box">
+                  <%= f.label :trial %>
+                  <%= f.text_field :trial%>
+                </div>
+              <% end %>
+
               <%= f.submit "Update" , class:"sign_btn" %>
             </div>
           </div>
