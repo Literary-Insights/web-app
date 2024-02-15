@@ -32,13 +32,16 @@
               </div>
 
               <div class="form_box fullname_box">
+                <%= f.label :fullname %>
                 <%= f.text_field :fullname, placeholder:"Enter your Full name" %>
               </div>
-              <div class="form_box username_box">
+              <div class="form_box username_box">                
+                <%= f.label :username %>
                 <%= f.text_field :username, placeholder:"Enter username" %>
               </div>
 
               <div class="form_box email_box">
+                <%= f.label :email %>
                 <%= f.email_field :email, placeholder:"Enter your Email" %>
               </div>
               <% if logged_in? && current_user.admin? %>
@@ -50,6 +53,11 @@
                 <div class="form_box">
                   <%= f.label :trial %>
                   <%= f.text_field :trial%>
+                </div>
+
+                <div class="form_box">
+                  <%= f.label :admin %>
+                  <%= f.text_field :admin%>
                 </div>
               <% end %>
 
