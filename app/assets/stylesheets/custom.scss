@@ -1,0 +1,39 @@
+.fixed-flash-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffcc00; /* Or any color that fits your app's theme */
+  text-align: center;
+  padding: 10px;
+  z-index: 1000; /* Ensures it's above other content */
+  box-sizing: border-box;
+}
+
+.fixed-flash-message p {
+  margin: 0;
+  padding: 0;
+  color: #333; /* Text color */
+}
+
+.subscribe-btn, .close-flash-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+}
+
+.close-flash-btn {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  padding: 0;
+}

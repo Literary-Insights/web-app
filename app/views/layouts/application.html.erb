@@ -26,13 +26,24 @@
     <%= stylesheet_link_tag "topics", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'custom' %>
+
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
     <main class="main">
+      <% if logged_in? && current_user.trial %>
+        <!-- app/views/layouts/_flash_message.html.erb -->
+        <div class="fixed-flash-message" id="flashMessage">
+          <p>Subscribe to our app for $1 monthly to help the project grow! Say Yes to Innovation: Become a Pioneer in Our Community. Subscribe Now and Lead the Change!<button onclick="closeFlashMessage()" class="close-flash-btn">&times;</button></p>
+          <a href="https://bit.ly/early-adopter-web-app" class="subscribe-btn">Subscribe Now</a>
+        </div>
+      <% end %>
       <%= render 'layouts/messages' %>
-    <%= yield %>
+      <%= yield %>
     </main>
   </body>
 </html>
+
+
